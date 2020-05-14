@@ -36,3 +36,122 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* ////////////////////////////////////////// */
+
+html { min-width: 1000px; cursor: default; }
+
+#header {
+  display: grid;
+  grid-template-columns: 25% 35% 40%;
+}
+
+#header div { min-width: 200px }
+
+#make_logo {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 5px;
+  padding : 15px;
+  width: 100%
+}
+#make_logo h1 { padding-bottom: 20px; }
+
+#update_and_start { text-align: center; }
+
+#update_and_start p {
+  height: 0px;
+  font-size: 12px;
+  width: 200px;
+  margin-left: 50%;
+}
+
+#update_and_start h1 {
+  border: solid 2px black;
+  padding: 15px;
+  width: 150px;
+  margin-top: 70px;
+  margin-left: 53%;
+  cursor: pointer;
+}
+
+
+#setting_title {
+  text-align: center;
+}
+
+#setting_title h3 {
+  margin : 20px 0px 0px 150px;
+}
+
+#setting_title #setting_img {
+  width: 25px;
+  position: absolute;
+  margin: 0px 0px 0px 10px;
+}
+
+#setting_tool {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border: solid 1px black;
+  padding: 3px;
+  width: 360px;
+  margin-left: 200px;
+  margin-top: 20px;
+  font-size: 13px;
+  height: 80px;
+}
+
+#setting_index li {
+  border-right: solid 1px #ababab;
+  list-style-type: none;
+  padding: 0px 0px 0px 20px;
+  width: 90px;
+  line-height: 35px;
+  margin-top: 3px;
+}
+
+#setting_contents ul { line-height: 0px; margin-top: 20px;}
+#setting_contents ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 35px;
+  cursor: pointer;
+}
+
+#dj { margin-left: 220px; }
+
+#body { border-top: solid 1px #ababab; margin-top: 30px;}
+
+.stage_floor { min-width: 1570px;}
+.stage_floor div { 
+  border: dashed 3px #77d8d8;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+#up_floor div { 
+  margin: 30px 0px 0px 40px;
+}
+
+#down_floor { margin-left: 20px; }
+#down_floor div { 
+  margin: 30px 10px 0px 50px;
+}
+
+#select_music {
+  padding: 3px 3px 0px 3px;
+  margin-top: 10px;
+  width: 75%;
+}
+
+#change_ment { text-align: center; margin-left: 70%; width: 200%;}
+#music_player { 
+  width: 23px; 
+  position : absolute; 
+  margin: 9px 0px 0px 15px; 
+  cursor: pointer;
+}
