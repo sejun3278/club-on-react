@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import music_list from '../../json/music.json';
 
 class setting extends Component {
+
   render() {
-    const { img, _clickSet } = this.props;
+    const { img, _clickSet, _selectMusic, _playMusic, play_music } = this.props;
 
     return (
         <div id='setting_div'>
@@ -24,11 +26,29 @@ class setting extends Component {
               </ul>
 
               <ul>
-                <select id='select_music'>
-                  <option> 1. 00:32  </option>
+                <select id='select_music'
+                    onChange={() => _selectMusic(window.event)}
+                >
+                  {music_list.music.map( (el, key) => {
+
+                    return(
+                    <option 
+                      key={key}
+                      value={JSON.stringify(el[0])}
+                    > 
+                      {key + 1}. {el[0].name} ({el[0].play}) 
+                    </option>
+                    )
+                  })}
                 </select>
-                <img id='music_player' src={img.other.music_play} title='음악 재생' />
+                  <img 
+                    onClick={!play_music ? () => _playMusic(true) : () => _playMusic(false)}
+                    id='music_player' src={!play_music ? img.other.music_play : img.other.music_pause} 
+                    title={!play_music ? "음악 재생" : "음악 정지"} alt=''/>
               </ul>
+                  {/* {play_music 
+                    ? <audio src={select_music} autoPlay> </audio> 
+                    : null} */}
             </div>
 
             <h4 id='change_ment'> </h4>

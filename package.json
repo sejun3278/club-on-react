@@ -7,7 +7,9 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
+    "react-awesome-modal": "^2.0.5",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -30,5 +32,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/sejun3278/club-on-react.git",
+  "author": "<sejun3278@gamil.com>",
+  "license": "MIT"
 }

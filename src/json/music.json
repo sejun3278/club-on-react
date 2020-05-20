@@ -1,0 +1,21 @@
+{
+    "music" : [
+        [{
+            "num" : 1,
+            "name" : "Nobody Compares To You",
+            "artist" : "Gryffin",
+            "url" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/Club+Music+1.mp3",
+            "play" : "00:32",
+            "play_time" : 33000
+        }],
+
+        [{
+            "num" : 2,
+            "name" : "Nekozilla",
+            "artist" : "Different Heaven",
+            "url" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/Club+Music+2.mp3",
+            "play" : "00:52",
+            "play_time" : 53000
+        }]
+    ]
+}

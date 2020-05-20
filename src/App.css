@@ -133,13 +133,12 @@ html { min-width: 1000px; cursor: default; }
   cursor: pointer;
 }
 
-#up_floor div { 
+#up_floor { 
   margin: 30px 0px 0px 40px;
 }
 
-#down_floor { margin-left: 20px; }
-#down_floor div { 
-  margin: 30px 10px 0px 50px;
+#down_floor { 
+  margin: 30px 0px 0px 60px;
 }
 
 #select_music {
@@ -154,4 +153,131 @@ html { min-width: 1000px; cursor: default; }
   position : absolute; 
   margin: 9px 0px 0px 15px; 
   cursor: pointer;
+}
+
+.stage_floor div { 
+  background-size: 80%; 
+  background-repeat: no-repeat; 
+  background-position-x: center;
+  background-position-y: 8px;
+}
+
+.stage_floor div img {
+  width: 90%;
+  margin-left: 5px;
+}
+
+#selector_other h3 { text-align: center; }
+#selector_other img {
+  width: 30px;
+  position: absolute;
+  cursor: pointer;
+}
+
+#selector_other #close {
+  margin: -60px 0px 0px 0px;
+  right: 30px;
+}
+
+#selector_other #pre { margin-left: 30%; margin-top: -5px; }
+#selector_other #next { margin-left: 63%; margin-top: -46px;}
+
+#selector_body {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  padding: 10px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+#char_profile #choice_char_profile {
+  border: solid 1px #ababab;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+  height: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -20px;
+}
+
+#char_profile #choice_char_opt {
+  text-align: center;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+#char_profile #choice_char_opt div {
+  border: solid 2px #ababab;
+  border-radius: 5px;
+  margin-left: 25px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+#choice_char {
+  margin-left: 50px;
+  border: solid 1px #ababab;
+  border-radius: 10px;
+}
+
+#choice_char ul {
+  list-style-type: none;
+}
+
+
+#choice_char ul li ul {
+  margin-top: -10px;
+  padding: 5px;
+  width: 92%;
+  height: 50px;
+}
+
+#choice_char ul li ul li {
+  float: left;
+  width: 100px;
+  height: 50px;
+  border: solid 1px #ababab;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#choice_type li {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -10px;
+}
+
+#choice_acce li,
+#choice_hat li {
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position-x: 50%;
+}
+
+.click_allow { 
+  background-color: #434e52;
+}
+
+#game_reset_div {
+  position: absolute;
+  margin-top: 230px;
+  color: #ababab;
+  margin-left: 25px;
+  line-height: 5px;
+}
+
+#game_reset_div #game_reset {
+  width: 82px;
+  cursor: pointer;
+  color: black;
+}
+
+.light_off {
+  color: white;
+}
+
+.light_off_border {
+  border-color: white;
 }
