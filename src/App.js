@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import img from './img.json';
 import background from './json/background.json'
+import music from './json/music.json'
 import { action_fn } from './json/action.js'
 
 // 헤드 부분
@@ -11,6 +12,7 @@ import Head from './page/head/head'
 import Body from './page/body/body'
 
 var neonSign_obj = {};
+var playMusicTime;
 class App extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +23,7 @@ class App extends Component {
         club_on : false,
         light : true,
         select_mode : 1,
+        play_music : false,
     }
   }
 
@@ -133,6 +136,7 @@ class App extends Component {
     }
     
     select_img = img.character[select_type][select_acce][select_hat][0];
+
     char_info[char_num] = select_img;
 
     this.setState({ stage_people : char_info })
@@ -164,27 +168,41 @@ class App extends Component {
     this.setState({ club_on : boo })
     
     const people_array = this.state.stage_people;
+    this._playMusic(false)
 
-    if(boo) {
-      this._toggleLight(false, 0)
+    window.setTimeout(() => {
 
-      for(let i = 0; i < people_array.length; i++) {
-        if(people_array[i].includes('empty')) {
-          people_array[i] = null;
+      if(boo) {
+        this._toggleLight(false, 0)
+        this._playMusic(true);
+  
+        for(let i = 0; i < people_array.length; i++) {
+          if(people_array[i].includes('empty')) {
+            people_array[i] = null;
+          }
         }
+        this.setState({ stage_people : people_array })
+  
+      } else {
+        return;
       }
-      this.setState({ stage_people : people_array })
-    }
-
+    }, 100)
   }
 
   // 조명 on / off
   _toggleLight = (boo, num) => {
+    const { club_on, select_mode, stage_people } = this.state;
+    const { _changePeople, _resetClub } = this;
 
     if(!boo) {
       if(num >= 11) {
         this.setState({ light : false })
-        this._startNeonSignEffect('sign');
+    
+        if(!club_on) {
+          window.clearTimeout(neonSign_obj['sign']);
+        }
+    
+        action_fn(select_mode, _changePeople, stage_people, _resetClub)
         return;
       }
 
@@ -194,50 +212,11 @@ class App extends Component {
       window.setTimeout(() => {
         this._toggleLight(false, num)
       }, 25)
-
-    } else {
-      document.body.style.backgroundColor = 'white'
-      this.setState({ light : true })
     }
   }
 
-  // 조명 효과 실행
-  _startNeonSignEffect = (type) => {
-    // 클럽 간판 글씨
-    const { club_on, select_mode } = this.state;
-
-    if(!club_on) {
-      window.clearTimeout(neonSign_obj['sign']);
-    }
-    
-    var target;
-    if(type === 'sign') {
-      target = document.getElementById('update_and_start').children[0]
-    }
-
-    action_fn(select_mode)
-    //this._playNeonSignEffect(target, type, 0, neonSign_obj);
-  }
-
-  // 조명 효과
-  _playNeonSignEffect = (target, type, num, obj) => {
-    const { club_on, select_mode } = this.state;
-
-    if(club_on) { 
-      if(num > 4) {
-          num = 0;
-          window.clearTimeout(obj['sign'])
-
-          this._playNeonSignEffect(target, type, num, obj);
-      }
-
-        obj['sign'] = window.setTimeout(() => {
-          target.style.color = background.neonSign[num];
-          num++;
-
-          this._playNeonSignEffect(target, type, num, obj);
-      }, 50)
-    }
+  _changePeople = (arr) => {
+    this.setState({ stage_people : arr })
   }
 
   // 모드 선택
@@ -245,10 +224,56 @@ class App extends Component {
     this.setState({ select_mode : num })
   }
 
+  // 마무리
+  _resetClub = () => {
+    var stage_people = this.state.stage_people;
+
+    var search_char_info;
+    for(let i = 0; i < stage_people.length; i++) {
+      if(stage_people[i] === null) {
+        stage_people[i] = 'empty'
+
+      } else {
+        search_char_info = stage_people[i].slice((stage_people[i].indexOf('.com/') + 5), (stage_people[i].length - 4));
+        search_char_info = (search_char_info.split('-'));
+
+        stage_people[i] = img.character[search_char_info[0]][search_char_info[1]][search_char_info[2]][0]
+      }
+
+      this.setState({ stage_people : stage_people })
+    }
+
+    document.body.style.backgroundColor = 'white';
+
+    this.setState({
+      club_on : false,
+      light : true
+    })
+  }
+
+  // 음악 재생
+  _playMusic = (boo) => {
+    const { select_mode } = this.state;
+    this.setState({ play_music : boo })
+
+    if(boo) {
+      playMusicTime = window.setTimeout(() => {
+        this.setState({ play_music : false })
+
+        window.clearTimeout(playMusicTime);
+      }, music.music[select_mode - 1][0].play_time)
+
+      } else {
+        this.setState({ play_music : boo })
+        window.clearTimeout(playMusicTime);
+      }
+  }
+
+
 
   render() {
-    const { _complateChange, _setPeople, _changeCharacter, _setCharNum, _changeClubOnState, _selectMode } = this;
-    const { change, stage_people, char_num, club_on, light, neonSign } = this.state;
+    const { _complateChange, _setPeople, _changeCharacter, _setCharNum, _changeClubOnState, _selectMode, _playMusic } = this;
+    const { change, stage_people, char_num, club_on, light, neonSign, select_mode, play_music } = this.state;
 
     return (
       <div>
@@ -264,6 +289,9 @@ class App extends Component {
           club_on={club_on}
           light={light}
           neonSign={neonSign}
+          select_mode={select_mode}
+          play_music={play_music}
+          _playMusic={_playMusic}
         />
 
         <Body 
@@ -273,6 +301,7 @@ class App extends Component {
           _setCharNum={_setCharNum}
           club_on={club_on}
         />
+        {club_on ? 1 : 2}
       </div>
     );
   }

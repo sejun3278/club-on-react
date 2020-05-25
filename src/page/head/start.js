@@ -49,7 +49,8 @@ class start extends Component {
             <h1 title="클럽 오픈" 
                 onClick={() => _clubOn()}
                 onMouseOver={() => _toggleStart(true)}
-                onMouseLeave={() => _toggleStart(false)}>
+                onMouseLeave={() => _toggleStart(false)}
+            >
               Club Off 
             </h1>
             

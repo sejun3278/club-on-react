@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import { Logo, Start, Setting, Option } from './index'
+import music from '../../json/music.json'
 
 var timeoutMent;
-var playMusicTime;
 
 class head extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          select_music : 'https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/Club+Music+1.mp3',
-          play_music : false,
-          play_time : 33000,
+          select_music : 'https://reactclubon.s3.ap-northeast-2.amazonaws.com/Club+Music+1.mp3',
         }
       }
-
-    componentDidUpdate() {
-        const { club_on } = this.props;
-        const { play_music } = this.state;
-
-        if(club_on && !play_music) {
-            //this._playMusic(true)
-        }
-    }
       
     // 배치 버튼 클릭
     _clickSet = (type) => {
@@ -65,38 +54,17 @@ class head extends Component {
 
     // 음악 선택
     _selectMusic = (event) => {
+        const { _selectMode, _playMusic } = this.props; 
         const data = JSON.parse(event.target.value);
 
-        let select = data.url;
-        let time = data.play_time
-
-        this.setState({ select_music : select, play_time : time })
-        this.props._selectMode(data.num)
-        
-        this._playMusic(false)
-    }
-
-    // 음악 재생
-    _playMusic = (boo) => {
-        const { play_time } = this.state;
-        
-        this.setState({ play_music : boo })
-
-        if(boo) {
-            playMusicTime = window.setTimeout(() => {
-                this.setState({ play_music : false })
-
-            }, play_time)
-
-        } else {
-            window.clearTimeout(playMusicTime);
-        }
+        _selectMode(data.num)
+        _playMusic(false)
     }
 
   render() {
-    const { img, char_num, _changeClubOnState, club_on, light, neonSign } = this.props;
-    const { _clickSet, _reset, _selectMusic, _playMusic } = this; 
-    const { play_music, select_music } = this.state;
+    const { img, char_num, _changeClubOnState, club_on, light, neonSign, select_mode, play_music, _playMusic } = this.props;
+    const { _clickSet, _reset, _selectMusic } = this; 
+    const { select_music } = this.state;
 
     return (
         <div id='header'>
@@ -121,11 +89,12 @@ class head extends Component {
                 _playMusic={_playMusic}
                 play_music={play_music}
                 select_music={select_music}
+                select_mode={select_mode}
             />
             : null}
 
             {play_music 
-                ? <audio src={select_music} autoPlay> </audio> 
+                ? <audio src={music.music[select_mode - 1][0].url} autoPlay> </audio> 
                 : null}
             
             {!club_on ? 

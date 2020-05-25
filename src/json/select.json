@@ -36,7 +36,7 @@
                 "1" : {
                     "name" : "썬글라스",
                     "num" : "1",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/acce_1.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/acce_1.png"
                     }
             }],
 
@@ -44,7 +44,7 @@
                 "2" : {
                     "name" : "빨간색 패션안경",
                     "num" : "2",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/acce_2.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/acce_2.png"
                     }
             }],
 
@@ -52,7 +52,7 @@
                 "3" : {
                     "name" : "안경",
                     "num" : "3",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/acce_3.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/acce_3.png"
                     }
             }],
 
@@ -60,7 +60,7 @@
                 "4" : {
                     "name" : "하트 모양 썬글라스",
                     "num" : "4",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/acce_4.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/acce_4.png"
                     }
             }]
         ],
@@ -71,7 +71,7 @@
                 "1" : {
                     "name" : "꼬깔 모자",
                     "num" : "1",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/hat_1.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/hat_1.png"
                     }
             }],
 
@@ -79,7 +79,7 @@
                 "2" : {
                     "name" : "미키마우스 모자",
                     "num" : "2",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/hat_2.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/hat_2.png"
                     }
             }],
 
@@ -87,7 +87,7 @@
                 "3" : {
                     "name" : "경찰관 모자",
                     "num" : "3",
-                    "img" : "https://imgstoragesejun.s3.ap-northeast-2.amazonaws.com/hat_3.png"
+                    "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/hat_3.png"
                     }
             }]
         ]

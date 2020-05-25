@@ -97,14 +97,13 @@ class stage extends Component {
 
                   return (
                     <div
-                      className={club_on ? 'test' : null}
-                      onClick={() => _openSeletor(key + 1)}
+                      onClick={!club_on ? () => _openSeletor(key + 1) : null}
                       id={key < 8 ? 'up_floor' 
                                   : 'down_floor'
                         }
                       key={key} 
                       style={
-                        club_on ? {'backgroundImage' : `url(${char})`, 'border' : 'none'}
+                        club_on ? {'backgroundImage' : `url(${char})`, 'border' : 'none', 'cursor' : 'default' }
                                 : {'backgroundImage' : `url(${char})`}
                       }
                     >
