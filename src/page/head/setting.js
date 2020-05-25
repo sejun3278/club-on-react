@@ -5,13 +5,14 @@ import { Help } from './index.js';
 
 const customStyles = {
   content : {
-    top                   : '20%',
+    top                   : '45%',
     left                  : '50%',
     right                 : '50%',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    width                 : "1000px"
+    width                 : "1000px",
+    height                : "560px"
   }
 };
 
@@ -40,7 +41,7 @@ class setting extends Component {
           </div>
 
           <img id='help_icon' src={img.other.help} 
-              title='게임 설명' alt=''
+              title='Help' alt=''
               onClick={() => _toggleHelpModal(true)}
           />
 

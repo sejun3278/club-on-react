@@ -1,0 +1,28 @@
+{
+    "help" : {
+        "1" : {
+            "comment" : "<b>기본 배치 및 랜덤 배치</b>를 통해 캐릭터를 배치하거나 <br/>비어있는 캐릭터의 자리를 클릭해 직접 캐릭터들을 배치할 수 있습니다.",
+            "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/help_1.gif"
+        },
+
+        "2" : {
+            "comment" : "캐릭터를 직접 원하는 부분으로 커스텀 할 수도 있습니다. <br/><b><u>캐릭터 유형을 필수로 선택</u></b>해야만 악세서리 또는 모자를 착용할 수 있습니다.",
+            "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/help_2.gif"
+        },
+
+        "3" : {
+            "comment" : "출력되는 음악을 직접 고를 수 있습니다. <br/>음악은 재생 버튼을 클릭해 미리 들어볼 수 있습니다.",
+            "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/help_3.gif"
+        },
+
+        "4" : {
+            "comment" : "캐릭터와 음악을 선택하셨다면 <br/><b>Club Off</b> 버튼을 클릭해 클럽을 오픈해주세요.",
+            "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/help_4.gif"
+        },
+
+        "5" : {
+            "comment" : "음악마다 캐릭터들의 패턴이 달라지므로 <br/> 여러개의 음악들을 체험해보세요.",
+            "img" : "https://reactclubon.s3.ap-northeast-2.amazonaws.com/help_5.gif"
+        }
+    }
+}
